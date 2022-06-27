@@ -1,0 +1,57 @@
+\documentclass{ctexart}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{indentfirst} 
+\setlength{\parindent}{2em}
+\title{作业一：证明实对称矩阵在实数\\域上一定可对角化}
+\author{作者：罗凯阳 \\专业：数学与应用数学\\学号：3210103363}
+\date{2022年6月27日}
+\begin{document}
+
+\maketitle
+
+
+这是一个来自矩阵理论领域的问题，在物理、优化、工程计算等领域有着重要的应用。矩阵对角化之后，该线性变换的几何意义更容易理解。\\
+\indent 如：用对角矩阵表示的差分方程组或者微分方程组比较容易解出，因为每个等式只涉及一个未知函数；一点处的应力状态，在直角坐标下，可以用在三个正交平面上作用的应力矢量来表达，坐标转换前后的两个矩阵表达的是同一点处的同一个应力状态（或者说，表达的是同一个张量），后者的形式更为简洁，可以更清晰的体现一点的应力状态等等。
+\section{问题描述}
+叙述如下:任何一个n阶的实对称阵均可对角化，其中$n \in \boldsymbol{Z^+}$.
+
+\section{证明}
+我们只要证明存在n阶的正交阵$\boldsymbol{U}$使得$\boldsymbol{U^TAU}$为对角阵即可.为此，我们对矩阵的阶作归纳.若$\boldsymbol{A}$为1阶方阵，它已经对角化.令$\boldsymbol{U}=(1)_{1*1}$即得证.\\
+\indent 设已证明任何一个n-1阶实对称阵都存在相应的正交阵$\boldsymbol{U_1}$使得$\boldsymbol{{U_1}^TAU_1}$为对角阵，则对于任意一个n阶实对称阵$\boldsymbol{A}$，依n阶实对称阵有n个实特征值(包括重数)的性质，$\boldsymbol{A}$有n个实特征值(包括重数).设${\lambda}_1$为其中的一个特征值，$\boldsymbol{\xi}_1$为$\boldsymbol{A}$的属于${\lambda}_1$的一个特征向量且$\boldsymbol{|{\xi}_1|}=1$，用Schmidt正交化方法将$\boldsymbol{{\xi}_1}$扩充为$\boldsymbol{R^n}$中的一组标准正交基$\boldsymbol{\left(\begin{array}{cccc}{\xi}_1 & {\xi}_2 & \ldots &{\xi}_n\end{array}\right)}$，则
+
+
+\begin{equation}
+\boldsymbol{A\left(\begin{array}{cccc}{\xi}_1 & {\xi}_2 & \ldots &{\xi}_n\end{array}\right)}=\boldsymbol{\left(\begin{array}{cccc}{\xi}_1 & {\xi}_2 & \ldots &{\xi}_n\end{array}\right)}\left(\begin{array}{ccc}{\lambda}_1 & \boldsymbol{a}\\ \boldsymbol{O} & \boldsymbol{A_1}\end{array}\right)
+\end{equation}
+
+
+这里$\boldsymbol{a}$为n-1维实行向量，$\boldsymbol{A_1}$为n-1阶实方阵.令$\boldsymbol{U_0}=\boldsymbol{\left(\begin{array}{cccc}{\xi}_1 & {\xi}_2 & \ldots &{\xi}_n\end{array}\right)}$,则依由$\boldsymbol{\left(\begin{array}{cccc}{\xi}_1 & {\xi}_2 & \ldots &{\xi}_n\end{array}\right)}$为标准正交基知$\boldsymbol{U_0}$为正交阵.故
+
+
+\begin{equation}
+\boldsymbol{U_0^TAU_0}=\left(\begin{array}{cc}{\lambda}_1 & \boldsymbol{a}\\ \boldsymbol{O} & \boldsymbol{A_1}\end{array}\right)
+\end{equation}
+
+
+由于(2)等式左端为实对称阵，故其等式右端的矩阵也是实对称的，从而$\boldsymbol{a}$为n-1维的零向量，$\boldsymbol{A_1}$为n-1阶的实对称阵.依归纳假设知，存在n-1阶正交阵$\boldsymbol{U_1}$及n-1阶对角阵$\boldsymbol{{\Lambda}_1}$使得$\boldsymbol{U^T_1AU_1={\Lambda}_1}$.令
+
+
+\begin{equation}
+\boldsymbol{U}=\boldsymbol{U_0}\left(\begin{array}{cc}1 & \\& \boldsymbol{U_1}\end{array}\right)
+\end{equation}
+
+
+则$\boldsymbol{U}$为正交阵，且
+
+
+\begin{equation}
+\boldsymbol{{U}^TAU}=\left(\begin{array}{cc}{\lambda}_1 & \\& \boldsymbol{{\Lambda}_1}\end{array}\right)
+\end{equation}
+
+
+这说明所要证明的结论对于n阶实对称阵$\boldsymbol{A}$也成立.由数学归纳法，对所有n阶的实对称阵$\boldsymbol{A}$，均存在一个n阶的正交阵$\boldsymbol{U}$使得$\boldsymbol{{U}^TAU}$为对角阵，定理得证.
+
+
+\end{document}
